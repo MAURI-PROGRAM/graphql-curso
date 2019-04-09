@@ -1,12 +1,10 @@
 import mongoose from 'mongoose'
 const {databasemongo} = require('./keys');
 
-export function connect(){
+export  async function connect(){
     try{
-        mongoose.connect(databasemongo.uri,{
-            useCreateIndex : true,
-            useNewUrlParser: true,
-            useFindAndModify : false,            
+        await mongoose.connect(databasemongo.uri,{
+            useNewUrlParser: true,          
         })
         console.log('conectado a la BD')
     }catch(e){
